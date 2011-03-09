@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkStatusIcon" id="IconoEstado">
+    <property name="pixbuf">imagenes/icono.png</property>
+    <signal name="activate" handler="on_IconoEstado_activate"/>
+    <signal name="popup_menu" handler="on_IconoEstado_popup_menu"/>
+  </object>
+  <object class="GtkWindow" id="frm_pomodoro">
+    <property name="title" translatable="yes">MiniPomodoro</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="icon">imagenes/icono.png</property>
+    <property name="deletable">False</property>
+    <child>
+      <object class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">3</property>
+        <child>
+          <object class="GtkViewport" id="viewport1">
+            <property name="visible">True</property>
+            <property name="resize_mode">queue</property>
+            <property name="shadow_type">etched-out</property>
+            <child>
+              <object class="GtkFrame" id="frame2">
+                <property name="visible">True</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">none</property>
+                <child>
+                  <object class="GtkAlignment" id="alignment2">
+                    <property name="visible">True</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <object class="GtkLabel" id="lbl_tiempo">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">&lt;span font_desc="Alien Encounters 44"&gt;00:00:00&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel" id="label2">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Tiempo Restante</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkViewport" id="viewport2">
+            <property name="visible">True</property>
+            <property name="resize_mode">queue</property>
+            <child>
+              <object class="GtkFrame" id="frame1">
+                <property name="visible">True</property>
+                <property name="label_xalign">0</property>
+                <child>
+                  <object class="GtkAlignment" id="alignment1">
+                    <property name="visible">True</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <object class="GtkLabel" id="lbl_estado">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">&lt;span font_desc="Alien Encounters 33"&gt;Detenido&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="label">
+                  <object class="GtkLabel" id="label1">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Estado</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="spacing">20</property>
+            <property name="layout_style">center</property>
+            <child>
+              <object class="GtkToggleButton" id="t_btn_OnOff">
+                <property name="label" translatable="yes">Iniciar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="toggled" handler="on_t_btn_OnOff_toggled"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_siguiente">
+                <property name="label" translatable="yes">Siguiente</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="activate" handler="on_btn_siguiente_activate"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_minimizar">
+                <property name="label" translatable="yes">Minimizar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btn_minimizar_clicked"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="menu">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkMenuItem" id="OnOff">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Iniciar/Detener</property>
+        <signal name="activate" handler="on_OnOff_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="Siguiente">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Siguiente</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="on_Siguiente_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="Salir">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Salir</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="on_Salir_activate"/>
+      </object>
+    </child>
+  </object>
+</interface>
