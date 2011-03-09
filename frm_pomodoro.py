@@ -7,8 +7,11 @@ pygtk.require("2.0")
 import gtk
 import gobject
 
-from extends import run_clock, get_alarm_hour
+from extends import *
 
+#estados
+POMODORO = 0
+DESCANSO = 1
 
 def create(xml):
     return Form(xml)
@@ -28,14 +31,17 @@ class Form:
 
         #otros widget
         self.lbl_tiempo = builder.get_object('lbl_tiempo')
+        self.lbl_crono = builder.get_object('lbl_crono')
         self.lbl_estado = builder.get_object('lbl_estado')
+        self.t_btn_OnOff = builder.get_object('t_btn_OnOff')
 
         #conectar seniales
         builder.connect_signals(self)
 
         #otros
         self.pomodoros = 0 #cantidad de pomodoros q ocurrieron
-        self.hora_alarma = None
+        self.estado = POMODORO
+        self.hora_alarma = get_alarm_hour(self)
 
         gobject.timeout_add(500, run_clock, self)
 
@@ -47,13 +53,23 @@ class Form:
         self.menu.popup(None, None, None, button, activate_time)
 
 
+    def on_t_btn_OnOff_toggled(self, widget, *argv):
+        self.hora_alarma = get_alarm_hour(self)
+
+
+    def on_btn_siguiente_clicked(self, widget, *argv):
+        pass
+
+
     def on_btn_minimizar_clicked(self, widget, *argv):
         self.ventana.hide()
 
 
     #menu eventos
     def on_OnOff_activate(self, widget, *argv):
-        pass
+        estado = self.t_btn_OnOff.get_active()
+        self.t_btn_OnOff.set_active(not(estado))
+        self.hora_alarma = get_alarm_hour(self)
 
 
     def on_Siguiente_activate(self, widget, *argv):

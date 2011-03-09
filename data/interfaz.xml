@@ -18,7 +18,6 @@
       <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
-        <property name="spacing">3</property>
         <child>
           <object class="GtkViewport" id="viewport1">
             <property name="visible">True</property>
@@ -34,9 +33,9 @@
                     <property name="visible">True</property>
                     <property name="left_padding">12</property>
                     <child>
-                      <object class="GtkLabel" id="lbl_tiempo">
+                      <object class="GtkLabel" id="lbl_crono">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">&lt;span font_desc="Alien Encounters 44"&gt;00:00:00&lt;/span&gt;</property>
+                        <property name="label" translatable="yes">&lt;span font_desc="Alien Encounters 33"&gt;00:00:00&lt;/span&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
                     </child>
@@ -55,6 +54,38 @@
             <property name="expand">False</property>
             <property name="fill">False</property>
             <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="frame3">
+            <property name="visible">True</property>
+            <property name="label_xalign">0</property>
+            <child>
+              <object class="GtkAlignment" id="alignment3">
+                <property name="visible">True</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_tiempo">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">&lt;span font_desc="Alien Encounters 33"&gt;00:00:00&lt;/span&gt;
+</property>
+                    <property name="use_markup">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="label3">
+                <property name="visible">True</property>
+                <property name="yalign">0.4699999988079071</property>
+                <property name="xpad">2</property>
+                <property name="label" translatable="yes">Hora</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -88,7 +119,7 @@
             </child>
           </object>
           <packing>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
@@ -140,7 +171,7 @@
             </child>
           </object>
           <packing>
-            <property name="position">2</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>
