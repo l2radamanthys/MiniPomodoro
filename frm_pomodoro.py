@@ -44,6 +44,7 @@ class Form:
         self.hora_alarma = get_alarm_hour(self)
 
         gobject.timeout_add(500, run_clock, self)
+        gobject.timeout_add(500, ctlr_alarma, self)
 
     def on_IconoEstado_activate(self, widget, *argv):
         self.ventana.show_all()
